@@ -1,0 +1,19 @@
+PRAGMA FOREIGN_KEYS = ON;
+
+DROP TABLE albums;
+DROP TABLE artists;
+
+CREATE TABLE artists (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR
+);
+
+CREATE TABLE albums (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title VARCHAR,
+  genre VARCHAR,
+  artist_id INTEGER NOT NULL, 
+    FOREIGN KEY (artist_id)
+       REFERENCES artists (id) ON DELETE CASCADE
+);
+
